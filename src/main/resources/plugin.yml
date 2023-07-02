@@ -1,0 +1,15 @@
+name: GlxphsPlugin
+version: 1.0.0
+main: io.github.glxphs.plugin.GlxphsPlugin
+description: Glxphs' plugin
+author: Glxphs
+api-version: '1.20'
+commands:
+  item:
+    description: Gives you an item
+    usage: /<command> <item>
+    permission: glxphsplugin.item
+  entity:
+    description: Spawns an entity
+    usage: /<command> <item>
+    permission: glxphsplugin.entity
