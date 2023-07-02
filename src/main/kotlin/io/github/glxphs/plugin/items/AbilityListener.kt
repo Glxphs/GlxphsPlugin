@@ -1,9 +1,11 @@
 package io.github.glxphs.plugin.items
 
 import io.github.glxphs.plugin.GlxphsPlugin
+import io.github.glxphs.plugin.features.InfoBar
 import io.github.glxphs.plugin.items.manager.ItemManager
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -35,6 +37,12 @@ class AbilityListener : Listener {
             val currentTime = Bukkit.getCurrentTick()
 
             if (currentTime - lastUsageTime < cooldownTime) {
+                InfoBar.showInfo(
+                    Component.text("ITEM ON COOLDOWN")
+                        .color(NamedTextColor.RED)
+                        .decorate(TextDecoration.BOLD),
+                    10
+                )
 //                event.player.sendMessage(Component.text("This item is on cooldown! Last used: ${currentTime - lastUsageTime}").color(NamedTextColor.RED))
                 return
             }

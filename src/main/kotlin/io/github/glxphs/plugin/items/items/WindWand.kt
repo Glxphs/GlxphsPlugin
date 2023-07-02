@@ -25,7 +25,7 @@ class WindWand : CustomItem(
     "A wand that can be used to summon wind.",
     WindWandAbility()
 ) {
-    class WindWandAbility : Ability("Summon Wind", "Launches the player.", Type.RIGHT_CLICK, 20) {
+    class WindWandAbility : Ability("Summon Wind", "Launches the player.", Type.RIGHT_CLICK, 40) {
         override fun onActivate(player: Player) {
             object : BukkitRunnable() {
                 var ticks = 0

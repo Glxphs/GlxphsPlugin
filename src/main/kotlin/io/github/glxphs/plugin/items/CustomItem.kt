@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Material
+import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
 
@@ -19,6 +20,7 @@ open class CustomItem(
 ) : ItemStack(material) {
     init {
         val tempMeta = itemMeta
+        tempMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         // Add the id to the item's nbt
         tempMeta.persistentDataContainer[GlxphsPlugin.itemIdKey, PersistentDataType.STRING] = id
 
@@ -53,6 +55,12 @@ open class CustomItem(
                         Component.text(attribute.value)
                             .color(NamedTextColor.RED)
                     )
+                    .decoration(TextDecoration.ITALIC, false)
+            )
+        }
+        if (meta.attributes.isNotEmpty()) {
+            lore.add(
+                Component.empty()
                     .decoration(TextDecoration.ITALIC, false)
             )
         }
